@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .title{
+            color:rgb(149, 0, 255);
+            font-size: 100px;
+        }
+        .list{
+            font-size: 30px;
+            
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Facts</title>
+</head>
+<body style="background-color: rgb(254, 254, 240);">
+    <h1 class="title">Cat Facts</h1>
+    <ul id="fact-list" class="list"></ul>
+
+    <script >
+        // JavaScript code to fetch and display facts
+        const factList = document.getElementById('fact-list');
+
+        fetch('https://cat-fact.herokuapp.com/facts')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.length) { // Check if data is not empty
+                    const facts = data.map(item => item.text);
+                    facts.forEach(fact => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = fact;
+                        factList.appendChild(listItem);
+                        
+                    });
+                } else {
+                    console.error('No cat facts found.');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching cat facts:', error);
+            });
+    </script>
+</body>
+</html>

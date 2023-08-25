@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagraym</title>
+</head>
+<style>
+    .center {
+       width:600px;
+       height:600px;
+       background-color: whitesmoke;
+       margin:0px auto 0px auto;
+       border: 30px solid black;
+       border-top:30px solid black;
+    }
+    .top-rectangle {
+        width:600px;
+        margin: 10px auto 0px auto;
+        height:200px;
+        background-color: whitesmoke;
+        border: 30px solid black;
+        border-bottom:20px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .back-rectangle {
+        width:700px;
+        margin: 50px auto 0px auto;
+        height:300px;
+        background-color: black;
+    }
+    .logo {
+        width:200px;
+        height: 200px;
+        margin-left:200px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+    .intro-text {
+        font-size: 50px;
+        font-family:verdana;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .logo-pic {
+        width: 400px;
+        height: 200px;
+        
+    }
+</style>
+<body style="background-color:pink">
+        <div class="top-rectangle">
+            <img src="/Users/neftali/Downloads/instagraym.png" class="logo-pic">
+        </div>
+        <div class="center">
+            <form name="form1" action="#">
+                <img src="/Users/neftali/Downloads/logo2.png" class="logo">
+                <p class="intro-text">
+                    Welcome to Instagraym!<br>
+                    Please log in below:<br>
+                </p>
+                <input type="text" name="username" placeholder="Username" style="margin-left: 200px;"><br>
+                <input type="submit" name="submit" value="Validate email" Onclick="ValidateInformation(document.form1.username)" style="margin-left: 200px;">
+                <br>
+                <span id = "message" style="color:red"> </span>
+                <input type="text" name="password" id="pswd" placeholder="Password" style="margin-left: 200px;"><br>
+                <input type="submit" name="submit" value="Validate password" Onclick="ValidatePassword()" style="margin-left: 200px;">
+                <br>
+                
+                <script>
+                    function ValidateInformation(email){
+                        var mailformat =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                        if(email.value.match(mailformat)){
+                            alert("Valid email address!");
+                            return true;
+                        }
+                        else{
+                            alert("Invalid address!");
+                            return false;
+                        }
+                    }
+                    function ValidatePassword(password){
+                        var pw = document.getElementById("pswd").value;  
+                        //check empty password field  
+                        if(pw == "") {  
+                        alert("Fill the password please!");  
+                        return false;  
+                    }  
+                        //minimum password length validation  
+                        if(pw.length < 8) {  
+                            alert("Password length must be atleast 8 characters");  
+                            return false;  
+                        }  
+  
+                        //maximum length of password validation  
+                        if(pw.length > 15) {  
+                            alert("Password length must not exceed 15 characters");  
+                            return false;  
+                        } else {  
+                            alert("Password is correct");  
+                        }  
+                    }
+                </script>
+            </form>
+        </div>
+</body>
+</html>

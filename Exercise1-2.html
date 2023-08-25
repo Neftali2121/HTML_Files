@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise1</title>
+    <!-- <script src = "FisrtExcersiceJS.js"></script>  This links the html file to a js file
+        if you have it on separated sheets-->
+        <style>
+            .margin{
+                margin-right: 100px;
+            }
+            .margin[id="poem"]{
+                margin-left: 100px;
+                margin-bottom: 0px;
+                /* line-height:1.8; */
+            }
+            .margin[id="title"]{
+                margin-left: 100px;
+                font-style: italic;
+            }
+            .results{
+                color: tan;
+                font-size: 40px;
+                background-color: darkcyan;
+                margin-right: 650px;
+            }
+            .word{
+                font-size: 45px;
+                margin-left:100px;
+                margin-top: 0px;
+            }
+            </style>
+            </head>
+</head>
+<body style="background-color: cadetblue;">
+    <h1 id="title" style="font-size: 70px;" class="margin">Short Poem </h1>
+    <img id="avocado-picture" src="/Users/neftali/Downloads/Avocado.jpg" width="500px" height="400px" align="right" class="margin">
+    <p id="poem" style="font-size: 45px;" class="margin">
+        Sometimes <br>
+        the short poems <br>
+        are the hardest <br>
+        to write <br>
+        change one word <br>
+        and the whole poem<br>
+        <p id="change-text" class="word">changes</p>
+    </p>
+        <!-- <button onclick="document.getElementById('poem').style.color='red'">Click me</button> -->
+        <p style="font-size: 45px;" class="word">Atticus </p>
+    <p id="function_result"class="results"></p>
+    <script> 
+        let names= ["John", "Mary", "Joe", "Mark", "Paul", "Frank", "Joan"];
+        var numbers = [1, 2, 3, 4, 5, 6, 7];
+        let booleanValues = [true, false, true, false, true, false, true];
+        function sum(num1,num2){
+            let total=  numbers[num1] + numbers[num2];
+            return total;}
+        document.getElementById("function_result").innerHTML = "Result of the function sum = " + sum(2,4);
+        const changeText = document.querySelector("#change-text");
+        changeText.addEventListener("click", function() {
+            changeText.textContent = "avocado"});
+    </script>
+    <button onclick="document.getElementById('poem').style.color='red'">Click me</button>
+    <button  onclick="document.getElementById('title').style.color='yellow'">Or me</button>
+</body>
+</html>
